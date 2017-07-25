@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -12,24 +10,111 @@ android {
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        debug {
+            versionNameSuffix "-DEBUG"
+            applicationIdSuffix ".debug"
+            debuggable true
+            minifyEnabled true
+            shrinkResources false
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro', 'proguard-rules-test.pro'
         }
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    kapt {
+        generateStubs = true
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.0.0'
-    implementation 'com.android.support:design:26.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.0'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
+    // Support
+    compile libs.appCompat
+    compile libs.recyclerView
+    compile libs.supportDesignLib
+
+    // MVP
+    compile(libs.mosby) {
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-annotations'
+    }
+
+    compile(libs.mosbyNullObject) {
+        exclude module: 'support-annotations'
+    }
+
+    // Dagger
+    compile libs.dagger
+    kapt proc.dagger
+    provided proc.javaxAnnotation
+
+
+    compile libs.rxKotlin2
+    compile libs.rxAndroid2
+
+    // Views
+    compile libs.verticalViewPager
+    compile libs.gridLayout
+    compile libs.cardView
+    compile libs.constraintLayout
+
+    // kotlin
+    compile libs.kotlin
+
+    // Stetho
+    compile libs.stetho
+
+    // LeakCanary
+    compile libs.leakCanary
+
+    // BlockCanary
+    compile libs.blockCanary
+
+    // StrictMode
+    compile libs.strictmodeNotifier
+
+    // Timber
+    compile libs.timber
+
+    // Unit testing
+    testCompile test.junit
 }
