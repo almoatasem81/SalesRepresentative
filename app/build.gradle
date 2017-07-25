@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'io.objectbox.android.transform'
 
 android {
@@ -75,53 +74,39 @@ dependencies {
     compile libs.recyclerView
     compile libs.supportDesignLib
     compile libs.supportv4
-
     // MVP
     compile(libs.mosby) {
         exclude module: 'appcompat-v7'
         exclude module: 'support-annotations'
     }
-
     compile(libs.mosbyNullObject) {
         exclude module: 'support-annotations'
     }
-
     // Dagger
     compile libs.dagger
     kapt proc.dagger
     provided proc.javaxAnnotation
-
-
     compile libs.rxKotlin2
     compile libs.rxAndroid2
-
     // Views
     compile libs.verticalViewPager
     compile libs.gridLayout
     compile libs.cardView
     compile libs.constraintLayout
-
     // kotlin
     compile libs.kotlin
-
     // Stetho
     compile libs.stetho
-
     // LeakCanary
     compile libs.leakCanary
-
     // BlockCanary
     compile libs.blockCanary
-
     // StrictMode
     compile libs.strictmodeNotifier
-
     // Timber
     compile libs.timber
-
     // Unit testing
     testCompile test.junit
-
     compile libs.objectBoxAndroid
     compile libs.objectBoxKotlin
     kapt proc.objectBoxProcessor

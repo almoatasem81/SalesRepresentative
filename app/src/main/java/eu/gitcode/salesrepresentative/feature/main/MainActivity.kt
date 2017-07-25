@@ -22,18 +22,23 @@ class MainActivity : AppCompatActivity() {
         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_orders -> {
+                    viewPager.currentItem = ClientProfilePagesEnum.ORDERS.ordinal
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_shops -> {
+                    viewPager.currentItem = ClientProfilePagesEnum.SHOPS.ordinal
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_goods -> {
+                    viewPager.currentItem = ClientProfilePagesEnum.GOODS.ordinal
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_notes -> {
+                    viewPager.currentItem = ClientProfilePagesEnum.NOTES.ordinal
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_timetable -> {
+                    viewPager.currentItem = ClientProfilePagesEnum.TIMETABLE.ordinal
                     return@OnNavigationItemSelectedListener true
                 }
             }

@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.util.SparseArray
 import android.view.ViewGroup
+import eu.gitcode.salesrepresentative.feature.shops.ShopsFragment
 
 class MainFragmentsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
@@ -24,7 +25,7 @@ class MainFragmentsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         // TODO 25.07.17 Add correct fragments
         when (ClientProfilePagesEnum.values()[position]) {
             ClientProfilePagesEnum.ORDERS -> return Fragment()
-            ClientProfilePagesEnum.SHOPS -> return Fragment()
+            ClientProfilePagesEnum.SHOPS -> return ShopsFragment()
             ClientProfilePagesEnum.GOODS -> return Fragment()
             ClientProfilePagesEnum.NOTES -> return Fragment()
             ClientProfilePagesEnum.TIMETABLE -> return Fragment()
