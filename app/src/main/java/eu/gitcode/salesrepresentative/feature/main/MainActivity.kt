@@ -1,44 +1,52 @@
-package eu.gitcode.salesrepresentative
+package eu.gitcode.salesrepresentative.feature.main
 
+import ClientProfilePagesEnum
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import eu.gitcode.salesrepresentative.R
+import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var adapter: MainFragmentsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_activity)
         setupNavigationListener()
+        setUpViewPager()
     }
 
     private fun setupNavigationListener() {
-        val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
+        val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
+            when (it.itemId) {
                 R.id.navigation_orders -> {
-                    message.setText(R.string.orders)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_shops -> {
-                    message.setText(R.string.shops)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_goods -> {
-                    message.setText(R.string.goods)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_notes -> {
-                    message.setText(R.string.notes)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_timetable -> {
-                    message.setText(R.string.timetable)
                     return@OnNavigationItemSelectedListener true
                 }
             }
             false
         }
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+    }
+
+    private fun setUpViewPager() {
+        adapter = MainFragmentsAdapter(supportFragmentManager)
+        viewPager.swipeable = false
+        viewPager.adapter = adapter
+        viewPager.currentItem = ClientProfilePagesEnum.ORDERS.ordinal
+        viewPager.offscreenPageLimit = MainFragmentsAdapter.PAGE_COUNT
     }
 }

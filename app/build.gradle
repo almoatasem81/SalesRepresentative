@@ -68,9 +68,11 @@ android {
 
 dependencies {
     // Support
+    implementation 'com.android.support:support-v4:26.0.0'
     compile libs.appCompat
     compile libs.recyclerView
     compile libs.supportDesignLib
+    compile libs.supportv4
 
     // MVP
     compile(libs.mosby) {
