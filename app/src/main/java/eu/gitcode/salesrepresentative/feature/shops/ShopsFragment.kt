@@ -1,6 +1,7 @@
 package eu.gitcode.salesrepresentative.feature.shops
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +32,6 @@ class ShopsFragment : MvpFragment<ShopsContract.View, ShopsContract.Presenter>()
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         getPresenter().loadShops()
-        presenter.loadShops()
     }
 
     override fun showShops(shops: List<Shop>) {
@@ -41,5 +41,6 @@ class ShopsFragment : MvpFragment<ShopsContract.View, ShopsContract.Presenter>()
     private fun setupRecyclerView() {
         adapter = ShopsAdapter()
         recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
     }
 }
