@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">SalesRepresentative</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">Przedstawiciel Handlowy</string>
+    <string name="orders">Zamówienia</string>
+    <string name="shops">Sklepy</string>
+    <string name="goods">Towary</string>
+    <string name="notes">Notatki</string>
+    <string name="timetable">Harmonogram</string>
 </resources>
