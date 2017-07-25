@@ -46,13 +46,11 @@ captures/
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-.idea/workspace.xml
+.idea/*
 .idea/tasks.xml
 .idea/dictionaries
-.idea/vcs.xml
 .idea/jsLibraryMappings.xml
 .idea/findbugs-idea.xml
-.idea/misc.xml
 .idea/compiler.xml
 .idea/codeStyleSettings.xml
 
@@ -63,10 +61,6 @@ captures/
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
-
-# Gradle:
-.idea/gradle.xml
-.idea/libraries
 
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
@@ -139,7 +133,6 @@ Temporary Items
 #sonarlint
 .idea/sonarlint.xml
 .idea/sonarLint.xml
-.idea/sonarlint/
 
 
 .idea/shelf/
@@ -147,4 +140,3 @@ Temporary Items
 .idea/markdown-navigator.xml
 .idea/markdown-navigator/
 projectFilesBackup/
-/.idea/modules.xml
