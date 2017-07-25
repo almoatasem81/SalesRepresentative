@@ -68,21 +68,24 @@ ext {
             autoBundle          : "com.github.yatatsu:autobundle:$autoBundleVersion",
             greenDao            : "org.greenrobot:greendao:$greenDaoVersion",
             greenDaoGenerator   : "org.greenrobot:greendao-generator:$greenDaoVersion",
-            verticalViewPager   : "com.github.castorflex.verticalviewpager:library:19.0.1"
+            verticalViewPager   : "com.github.castorflex.verticalviewpager:library:19.0.1",
+            objectBoxAndroid    : "io.objectbox:objectbox-android:$objectBoxVersion",
+            objectBoxKotlin     : "io.objectbox:objectbox-kotlin:$objectBoxVersion",
     ]
 
     proc = [
-            retrolambda     : "net.orfjackal.retrolambda:retrolambda:2.5.1",
-            errorprone      : "com.google.errorprone:error_prone_core:2.0.9",
-            autoValue       : "com.google.auto.value:auto-value:1.4.1",
-            autoParcel      : "com.ryanharter.auto.value:auto-value-parcel:0.2.5",
-            autoGson        : "com.ryanharter.auto.value:auto-value-gson:0.4.6",
-            autoBundle      : "com.github.yatatsu:autobundle-processor:$autoBundleVersion",
-            icepick         : "frankiesardo:icepick-processor:3.2.0", // apt (provided)
-            onActivityResult: "com.vanniktech:onactivityresult-compiler:$onActivityResultVersion", // apt
-            butterKnife     : "com.jakewharton:butterknife-compiler:$butterKnifeVersion", // apt
-            dagger          : "com.google.dagger:dagger-compiler:$daggerVersion", // apt
-            javaxAnnotation : "org.glassfish:javax.annotation:10.0-b28", // apt (provided)
+            retrolambda       : "net.orfjackal.retrolambda:retrolambda:2.5.1",
+            errorprone        : "com.google.errorprone:error_prone_core:2.0.9",
+            autoValue         : "com.google.auto.value:auto-value:1.4.1",
+            autoParcel        : "com.ryanharter.auto.value:auto-value-parcel:0.2.5",
+            autoGson          : "com.ryanharter.auto.value:auto-value-gson:0.4.6",
+            autoBundle        : "com.github.yatatsu:autobundle-processor:$autoBundleVersion",
+            icepick           : "frankiesardo:icepick-processor:3.2.0", // apt (provided)
+            onActivityResult  : "com.vanniktech:onactivityresult-compiler:$onActivityResultVersion", // apt
+            butterKnife       : "com.jakewharton:butterknife-compiler:$butterKnifeVersion", // apt
+            dagger            : "com.google.dagger:dagger-compiler:$daggerVersion", // apt
+            javaxAnnotation   : "org.glassfish:javax.annotation:10.0-b28", // apt (provided)
+            objectBoxProcessor: "io.objectbox:objectbox-processor:$objectBoxVersion"
     ]
 
     test = [

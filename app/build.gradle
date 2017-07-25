@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'io.objectbox.android.transform'
 
 android {
     compileSdkVersion 26
@@ -119,4 +121,8 @@ dependencies {
 
     // Unit testing
     testCompile test.junit
+
+    compile libs.objectBoxAndroid
+    compile libs.objectBoxKotlin
+    kapt proc.objectBoxProcessor
 }
