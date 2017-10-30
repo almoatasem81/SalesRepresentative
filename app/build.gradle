@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'io.objectbox.android.transform'
+apply plugin: 'io.objectbox'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "eu.gitcode.salesrepresentative"
         minSdkVersion 21
@@ -69,7 +69,7 @@ android {
 
 dependencies {
     // Support
-    implementation 'com.android.support:support-v4:26.0.0'
+    implementation libs.supportv4
     compile libs.appCompat
     compile libs.recyclerView
     compile libs.supportDesignLib

@@ -3,6 +3,9 @@ package eu.gitcode.salesrepresentative.app
 import android.app.Application
 import android.content.Context
 import eu.gitcode.salesrepresentative.BuildConfig
+import eu.gitcode.salesrepresentative.di.component.ApplicationComponent
+import eu.gitcode.salesrepresentative.di.component.DaggerApplicationComponent
+import eu.gitcode.salesrepresentative.di.module.ApplicationModule
 import timber.log.Timber
 
 class App : Application() {

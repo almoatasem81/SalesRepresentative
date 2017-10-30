@@ -24,15 +24,19 @@
           "id": "4:4643424105557443343",
           "name": "openingTime"
         }
-      ]
+      ],
+      "relations": []
     }
   ],
   "lastEntityId": "1:1704104807849781723",
   "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
-  "modelVersion": 2,
+  "modelVersion": 4,
+  "modelVersionParserMinimum": 4,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
   "retiredPropertyUids": [],
+  "retiredRelationUids": [],
   "version": 1
 }

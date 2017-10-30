@@ -1,4 +1,4 @@
-package eu.gitcode.salesrepresentative.app
+package eu.gitcode.salesrepresentative.di.module
 
 import android.app.Application
 import android.content.Context

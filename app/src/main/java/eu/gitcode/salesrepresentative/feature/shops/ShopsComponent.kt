@@ -1,7 +1,7 @@
 package eu.gitcode.salesrepresentative.feature.shops
 
 import dagger.Subcomponent
-import eu.gitcode.salesrepresentative.app.scope.FragmentScope
+import eu.gitcode.salesrepresentative.di.scope.FragmentScope
 
 @FragmentScope
 @Subcomponent

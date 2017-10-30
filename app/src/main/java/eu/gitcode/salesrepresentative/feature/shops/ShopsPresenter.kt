@@ -1,7 +1,7 @@
 package eu.gitcode.salesrepresentative.feature.shops
 
 import com.hannesdorfmann.mosby3.mvp.MvpNullObjectBasePresenter
-import eu.gitcode.salesrepresentative.app.scope.FragmentScope
+import eu.gitcode.salesrepresentative.di.scope.FragmentScope
 import eu.gitcode.salesrepresentative.model.Shop
 import javax.inject.Inject
 

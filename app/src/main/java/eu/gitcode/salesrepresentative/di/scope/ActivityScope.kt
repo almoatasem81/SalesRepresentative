@@ -1,4 +1,4 @@
-package eu.gitcode.salesrepresentative.app.scope
+package eu.gitcode.salesrepresentative.di.scope
 
 import javax.inject.Scope
 

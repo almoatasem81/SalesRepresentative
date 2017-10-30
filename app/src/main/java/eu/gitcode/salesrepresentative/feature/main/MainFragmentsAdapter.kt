@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import eu.gitcode.salesrepresentative.feature.shops.ShopsFragment
 
 class MainFragmentsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-
     companion object {
         val PAGE_COUNT = ClientProfilePagesEnum.values().size
     }
