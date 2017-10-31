@@ -1,6 +1,6 @@
 # SalesRepresentative
 Simple app for sales representatives. Why anybody should use it?
-Because it allows to collect all sales data in one place
+Because it allows to collect all sales data in one place.
 
 ### Technologies
 - <b>Kotlin</b> as Language - because it's cool
