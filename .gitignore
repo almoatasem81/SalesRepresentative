@@ -140,3 +140,6 @@ Temporary Items
 .idea/markdown-navigator.xml
 .idea/markdown-navigator/
 projectFilesBackup/
+
+# ObjectBox files
+/app/objectbox-models
