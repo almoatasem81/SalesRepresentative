@@ -69,11 +69,11 @@ android {
 
 dependencies {
     // Support
-    implementation libs.supportv4
     compile libs.appCompat
     compile libs.recyclerView
     compile libs.supportDesignLib
-    compile libs.supportv4
+
+
     // MVP
     compile(libs.mosby) {
         exclude module: 'appcompat-v7'
@@ -82,32 +82,81 @@ dependencies {
     compile(libs.mosbyNullObject) {
         exclude module: 'support-annotations'
     }
+
+
     // Dagger
     compile libs.dagger
     kapt proc.dagger
-    provided proc.javaxAnnotation
-    compile libs.rxKotlin2
-    compile libs.rxAndroid2
+    compileOnly proc.javaxAnnotation
+
+
+    // RxJava
+    implementation libs.rxJava2
+    implementation(libs.rxKotlin2) {
+        exclude module: 'rxjava'
+        exclude module: 'kotlin-stdlib'
+    }
+    implementation(libs.rxAndroid2) {
+        exclude module: 'rxjava'
+    }
+
+
+    // OkHttp + Retrofit
+    implementation libs.okHttp
+    implementation libs.okHttpLoggingInterceptor
+    implementation libs.retrofit
+    implementation libs.retrofitGsonConverter
+    implementation libs.retrofitRxJava2Adapter
+
+
+    // ObjectBox
+    compile libs.objectBoxAndroid
+    compile libs.objectBoxKotlin
+    kapt proc.objectBoxProcessor
+
+
+    // Glide
+    implementation libs.glide
+    kapt proc.glide
+
+
+    // ThreeTenAbp
+    implementation libs.threeTenAbp
+
+
     // Views
     compile libs.verticalViewPager
     compile libs.gridLayout
     compile libs.cardView
     compile libs.constraintLayout
-    // kotlin
+
+
+    // Kotlin
     compile libs.kotlin
+
+    //PaperParcel
+    implementation libs.paperParcel
+    kapt proc.paperParcel
+
     // Stetho
     compile libs.stetho
+
     // LeakCanary
     compile libs.leakCanary
-    // BlockCanary
     compile libs.blockCanary
+
     // StrictMode
     compile libs.strictmodeNotifier
+
     // Timber
     compile libs.timber
+
     // Unit testing
-    testCompile test.junit
-    compile libs.objectBoxAndroid
-    compile libs.objectBoxKotlin
-    kapt proc.objectBoxProcessor
+    testImplementation(test.junit) {
+        exclude module: 'hamcrest-core'
+    }
+    testImplementation test.mockito
+    testImplementation(test.mockitoKotlin) {
+        exclude module: 'mockito-core'
+    }
 }

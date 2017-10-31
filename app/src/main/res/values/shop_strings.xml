@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shop">Sklep</string>
+    <string name="new_shop">Nowy sklep</string>
+    <string name="shop_name">Nazwa sklepu</string>
+    <string name="location">Lokalizacja</string>
+    <string name="opening_hours">Godziny otwarcia</string>
+</resources>

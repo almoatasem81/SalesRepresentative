@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:1704104807849781723",
-      "lastPropertyId": "4:4643424105557443343",
+      "lastPropertyId": "6:8171009912772993258",
       "name": "Shop",
       "properties": [
         {
@@ -17,12 +17,12 @@
           "name": "name"
         },
         {
-          "id": "3:392020943784831923",
-          "name": "address"
+          "id": "5:3515107009331970023",
+          "name": "location"
         },
         {
-          "id": "4:4643424105557443343",
-          "name": "openingTime"
+          "id": "6:8171009912772993258",
+          "name": "openingHours"
         }
       ],
       "relations": []
@@ -36,7 +36,10 @@
   "modelVersionParserMinimum": 4,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    392020943784831923,
+    4643424105557443343
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

@@ -1,9 +1,9 @@
-package eu.gitcode.salesrepresentative.feature.shops
+package eu.gitcode.salesrepresentative.feature.shops.list
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import eu.gitcode.salesrepresentative.model.Shop
+import eu.gitcode.salesrepresentative.data.shop.model.Shop
 
 class ShopsAdapter : RecyclerView.Adapter<ShopViewHolder>() {
 

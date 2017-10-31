@@ -1,8 +1,8 @@
-package eu.gitcode.salesrepresentative.feature.shops
+package eu.gitcode.salesrepresentative.feature.shops.list
 
 import com.hannesdorfmann.mosby3.mvp.MvpPresenter
 import com.hannesdorfmann.mosby3.mvp.MvpView
-import eu.gitcode.salesrepresentative.model.Shop
+import eu.gitcode.salesrepresentative.data.shop.model.Shop
 
 interface ShopsContract {
 

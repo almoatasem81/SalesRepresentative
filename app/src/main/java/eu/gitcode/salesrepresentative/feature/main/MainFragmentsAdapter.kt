@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.util.SparseArray
 import android.view.ViewGroup
-import eu.gitcode.salesrepresentative.feature.shops.ShopsFragment
+import eu.gitcode.salesrepresentative.feature.shops.list.ShopsFragment
 
 class MainFragmentsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     companion object {

@@ -6,6 +6,7 @@ import eu.gitcode.salesrepresentative.BuildConfig
 import eu.gitcode.salesrepresentative.di.component.ApplicationComponent
 import eu.gitcode.salesrepresentative.di.component.DaggerApplicationComponent
 import eu.gitcode.salesrepresentative.di.module.ApplicationModule
+import eu.gitcode.salesrepresentative.di.module.RepositoryModule
 import timber.log.Timber
 
 class App : Application() {
@@ -14,6 +15,7 @@ class App : Application() {
         DaggerApplicationComponent
                 .builder()
                 .applicationModule(ApplicationModule(this))
+                .repositoryModule(RepositoryModule())
                 .build()
     }
 

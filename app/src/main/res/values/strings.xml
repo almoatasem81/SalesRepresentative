@@ -5,4 +5,5 @@
     <string name="goods">Towary</string>
     <string name="notes">Notatki</string>
     <string name="timetable">Harmonogram</string>
+    <string name="save">Zapisz</string>
 </resources>
