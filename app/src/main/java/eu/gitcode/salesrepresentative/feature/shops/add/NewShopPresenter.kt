@@ -6,6 +6,7 @@ import eu.gitcode.salesrepresentative.data.shop.ShopController
 import eu.gitcode.salesrepresentative.di.scope.FragmentScope
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.plusAssign
+import timber.log.Timber
 import javax.inject.Inject
 
 @FragmentScope
@@ -23,5 +24,17 @@ class NewShopPresenter @Inject constructor(val shopController: ShopController)
         compositeDisposable += shopController.saveShop(name, location, openingHours)
                 .compose(RxTransformers.applyCompletableIoSchedulers())
                 .subscribe({ view.closeView() })
+    }
+
+    override fun updateShop(shopId: Long, name: String, location: String?, openingHours: String?) {
+        compositeDisposable += shopController.updateShop(shopId, name, location, openingHours)
+                .compose(RxTransformers.applyCompletableIoSchedulers())
+                .subscribe({ view.closeView() })
+    }
+
+    override fun getShop(shopId: Long) {
+        compositeDisposable += shopController.getShop(shopId)
+                .compose(RxTransformers.applySingleComputationSchedulers())
+                .subscribe({ shop -> view.loadShop(shop) }, { t -> Timber.d(t) })
     }
 }

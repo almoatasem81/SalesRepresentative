@@ -15,14 +15,20 @@ class ShopsPresenter @Inject constructor(val shopController: ShopController)
 
     private val compositeDisposable = CompositeDisposable()
 
-    override fun loadShops() {
-        compositeDisposable += shopController.getShops()
-                .compose(RxTransformers.applySingleComputationSchedulers())
-                .subscribe({ shops -> view.showShops(shops) }, { throwable -> Timber.d(throwable) })
-    }
-
     override fun detachView(retainInstance: Boolean) {
         super.detachView(retainInstance)
         compositeDisposable.clear()
+    }
+
+    override fun loadShops() {
+        compositeDisposable += shopController.getShops()
+                .compose(RxTransformers.applySingleComputationSchedulers())
+                .subscribe({ shops -> view.showShops(shops) }, { t -> Timber.d(t) })
+    }
+
+    override fun removeShop(shopId: Long) {
+        compositeDisposable += shopController.removeShop(shopId)
+                .compose(RxTransformers.applyCompletableIoSchedulers())
+                .subscribe({ loadShops() }, { t -> Timber.d(t) })
     }
 }

@@ -12,5 +12,7 @@ interface ShopsContract {
 
     interface Presenter : MvpPresenter<View> {
         fun loadShops()
+
+        fun removeShop(shopId: Long)
     }
 }

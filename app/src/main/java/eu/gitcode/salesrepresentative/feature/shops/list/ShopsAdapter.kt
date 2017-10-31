@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import eu.gitcode.salesrepresentative.data.shop.model.Shop
 
-class ShopsAdapter : RecyclerView.Adapter<ShopViewHolder>() {
+class ShopsAdapter(
+        private val listener: ShopViewHolder.ShopViewHolderListener) : RecyclerView.Adapter<ShopViewHolder>() {
 
     val shopsList: MutableList<Shop> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ShopViewHolder {
         val layoutInflater = LayoutInflater.from(parent?.context)
-        return ShopViewHolder(layoutInflater, parent)
+        return ShopViewHolder(layoutInflater, parent, listener)
     }
 
     override fun onBindViewHolder(holder: ShopViewHolder, position: Int) {

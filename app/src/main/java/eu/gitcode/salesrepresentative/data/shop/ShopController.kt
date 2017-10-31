@@ -17,8 +17,23 @@ class ShopController @Inject constructor(private val boxStore: BoxStore) {
         return Single.just(query.find())
     }
 
+    fun getShop(shopId: Long): Single<Shop> {
+        return Single.just(boxStore.boxFor(Shop::class).get(shopId))
+    }
+
     fun saveShop(shopName: String, location: String?, openingHours: String?): Completable {
         val shop = Shop(name = shopName, location = location, openingHours = openingHours)
         return Completable.fromAction { boxStore.boxFor(Shop::class).put(shop) }
+    }
+
+    fun updateShop(shopId: Long, shopName: String, location: String?, openingHours: String?)
+            : Completable {
+        val shop = Shop(id = shopId, name = shopName, location = location,
+                openingHours = openingHours)
+        return Completable.fromAction { boxStore.boxFor(Shop::class).put(shop) }
+    }
+
+    fun removeShop(shopId: Long): Completable {
+        return Completable.fromAction { boxStore.boxFor(Shop::class).remove(shopId) }
     }
 }

@@ -6,4 +6,10 @@
     <string name="notes">Notatki</string>
     <string name="timetable">Harmonogram</string>
     <string name="save">Zapisz</string>
+    <string name="edit">Edytuj</string>
+    <string name="remove">Usuń</string>
+    <string name="close">Zamknij</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Anuluj</string>
+    <string name="are_you_sure_remove">Czy jesteś pewien, że chcesz usunąć element?</string>
 </resources>
