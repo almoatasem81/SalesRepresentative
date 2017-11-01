@@ -1,4 +1,4 @@
-package eu.gitcode.salesrepresentative.feature.shops.list
+package eu.gitcode.salesrepresentative.feature.products.list
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,18 +11,18 @@ import com.hannesdorfmann.mosby3.mvp.MvpFragment
 import eu.gitcode.salesrepresentative.R
 import eu.gitcode.salesrepresentative.app.App
 import eu.gitcode.salesrepresentative.common.extension.startActivityForResult
-import eu.gitcode.salesrepresentative.data.shop.model.Shop
-import eu.gitcode.salesrepresentative.feature.shops.add.NewShopActivity
+import eu.gitcode.salesrepresentative.data.product.model.Product
+import eu.gitcode.salesrepresentative.feature.products.add.NewProductActivity
 import kotlinx.android.synthetic.main.shops_fragment.*
 
-class ShopsFragment : MvpFragment<ShopsContract.View, ShopsContract.Presenter>(),
-        ShopsContract.View, ShopViewHolder.ShopViewHolderListener {
+class ProductsFragment : MvpFragment<ProductsContract.View, ProductsContract.Presenter>(),
+        ProductsContract.View, ProductViewHolder.ProductViewHolderListener {
 
-    lateinit var adapter: ShopsAdapter
+    lateinit var adapter: ProductsAdapter
 
-    override fun createPresenter(): ShopsContract.Presenter {
+    override fun createPresenter(): ProductsContract.Presenter {
         val component = App.Factory.getApplicationComponent(context)
-                .plusShopsComponent()
+                .plusProductsComponent()
         component.inject(this)
         return component.getPresenter()
     }
@@ -35,48 +35,49 @@ class ShopsFragment : MvpFragment<ShopsContract.View, ShopsContract.Presenter>()
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addShopFloatingBtn.setOnClickListener(
-                { startActivityForResult<NewShopActivity>(NewShopActivity.SHOP_ADDED_REQUEST_CODE) })
+                { startActivityForResult<NewProductActivity>(NewProductActivity.PRODUCT_ADDED_REQUEST_CODE) })
         setupRecyclerView()
-        getPresenter().loadShops()
+        getPresenter().loadProducts()
     }
 
-    override fun showShops(shops: List<Shop>) {
-        adapter.setShops(shops)
+    override fun showProducts(products: List<Product>) {
+        adapter.setProducts(products)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        getPresenter().loadShops()
+        getPresenter().loadProducts()
     }
 
-    override fun onShopClicked(shop: Shop) {
+    override fun onProductClicked(product: Product) {
         AlertDialog.Builder(context)
-                .setTitle(shop.name)
-                .setMessage(String.format("%s \n%s", shop.location, shop.openingHours))
-                .setPositiveButton(getString(R.string.edit), { _, _ -> editShop(shop.id) })
-                .setNeutralButton(getString(R.string.close)) { _, _ -> }
+                .setTitle(product.name)
+                .setMessage(String.format("%s \n%s \n%s",
+                        product.capacity ?: "", product.cost ?: "", product.description))
+                .setPositiveButton(getString(R.string.edit), { _, _ -> editProduct(product.id) })
+                .setNeutralButton(getString(R.string.close), { _, _ -> })
                 .setNegativeButton(getString(R.string.remove),
-                        { _, _ -> showAreYouSureDialog(shop) })
+                        { _, _ -> showAreYouSureDialog(product) })
                 .create().show()
     }
 
     private fun setupRecyclerView() {
-        adapter = ShopsAdapter(this)
+        adapter = ProductsAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
     }
 
-    private fun editShop(shopId: Long) {
-        NewShopActivity.startActivityIntent(
-                this, shopId, NewShopActivity.SHOP_ADDED_REQUEST_CODE)
+    private fun editProduct(productId: Long) {
+        NewProductActivity.startActivityIntent(
+                this, productId, NewProductActivity.PRODUCT_ADDED_REQUEST_CODE)
     }
 
-    private fun showAreYouSureDialog(shop: Shop) {
+    private fun showAreYouSureDialog(product: Product) {
         AlertDialog.Builder(context)
                 .setTitle(R.string.remove)
                 .setMessage(R.string.are_you_sure_remove)
                 .setPositiveButton(R.string.ok,
-                        { _, _ -> getPresenter().removeShop(shop.id) })
+                        { _, _ -> getPresenter().removeProducts(product.id) })
                 .setNegativeButton(R.string.cancel, { _, _ -> })
                 .create().show()
     }

@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.util.SparseArray
 import android.view.ViewGroup
+import eu.gitcode.salesrepresentative.feature.products.list.ProductsFragment
 import eu.gitcode.salesrepresentative.feature.shops.list.ShopsFragment
 
 class MainFragmentsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
@@ -25,7 +26,7 @@ class MainFragmentsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         when (ClientProfilePagesEnum.values()[position]) {
             ClientProfilePagesEnum.ORDERS -> return Fragment()
             ClientProfilePagesEnum.SHOPS -> return ShopsFragment()
-            ClientProfilePagesEnum.GOODS -> return Fragment()
+            ClientProfilePagesEnum.GOODS -> return ProductsFragment()
             ClientProfilePagesEnum.NOTES -> return Fragment()
             ClientProfilePagesEnum.TIMETABLE -> return Fragment()
         }

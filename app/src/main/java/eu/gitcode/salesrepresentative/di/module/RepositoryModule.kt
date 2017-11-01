@@ -3,7 +3,7 @@ package eu.gitcode.salesrepresentative.di.module
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import eu.gitcode.salesrepresentative.data.shop.model.MyObjectBox
+import eu.gitcode.salesrepresentative.data.product.model.MyObjectBox
 import io.objectbox.BoxStore
 import javax.inject.Singleton
 

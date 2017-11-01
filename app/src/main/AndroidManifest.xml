@@ -23,6 +23,9 @@
         <activity
             android:name=".feature.shops.add.NewShopActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".feature.products.add.NewProductActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

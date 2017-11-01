@@ -21,19 +21,19 @@ class NewShopPresenter @Inject constructor(val shopController: ShopController)
     }
 
     override fun addShop(name: String, location: String?, openingHours: String?) {
-        compositeDisposable += shopController.saveShop(name, location, openingHours)
+        compositeDisposable += shopController.save(name, location, openingHours)
                 .compose(RxTransformers.applyCompletableIoSchedulers())
                 .subscribe({ view.closeView() })
     }
 
     override fun updateShop(shopId: Long, name: String, location: String?, openingHours: String?) {
-        compositeDisposable += shopController.updateShop(shopId, name, location, openingHours)
+        compositeDisposable += shopController.update(shopId, name, location, openingHours)
                 .compose(RxTransformers.applyCompletableIoSchedulers())
                 .subscribe({ view.closeView() })
     }
 
     override fun getShop(shopId: Long) {
-        compositeDisposable += shopController.getShop(shopId)
+        compositeDisposable += shopController.get(shopId)
                 .compose(RxTransformers.applySingleComputationSchedulers())
                 .subscribe({ shop -> view.loadShop(shop) }, { t -> Timber.d(t) })
     }

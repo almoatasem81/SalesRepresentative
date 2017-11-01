@@ -26,9 +26,37 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "2:2353475774019013518",
+      "lastPropertyId": "5:1059507938487704883",
+      "name": "Product",
+      "properties": [
+        {
+          "id": "1:7432157210581915610",
+          "name": "id"
+        },
+        {
+          "id": "2:5970080536460420733",
+          "name": "name"
+        },
+        {
+          "id": "3:6567817033999591365",
+          "name": "capacity"
+        },
+        {
+          "id": "4:683417895975291790",
+          "name": "cost"
+        },
+        {
+          "id": "5:1059507938487704883",
+          "name": "description"
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "1:1704104807849781723",
+  "lastEntityId": "2:2353475774019013518",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

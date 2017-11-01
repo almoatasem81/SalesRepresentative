@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="product">Produkt</string>
+    <string name="new_product">Nowy produkt</string>
+    <string name="product_name">Nazwa produktu</string>
+    <string name="capacity">Pojemność</string>
+    <string name="cost">Cena</string>
+    <string name="description">Opis</string>
+</resources>
